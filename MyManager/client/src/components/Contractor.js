@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
 
-class Contractor extends Component {
+class Contractor extends React.Component {
     render() {
         return (
             <div className="Contractor">
