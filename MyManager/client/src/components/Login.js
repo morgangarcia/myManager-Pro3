@@ -7,15 +7,15 @@ class Login extends React.Component {
             <Form inline>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                     <Label for="exampleEmail" className="mr-sm-2">Email</Label>
-                    <Input type="email" name="email" id="exampleEmail" placeholder="something@idk.cool" />
+                    <Input type="email" name="email" id="exampleEmail" placeholder="user@jesusmail.com" />
                 </FormGroup>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                     <Label for="examplePassword" className="mr-sm-2">Password</Label>
                     <Input type="password" name="password" id="examplePassword" placeholder="don't tell!" />
                 </FormGroup>
-                //takes you to the Contractor Page 
+
                 <Button color="primary">SignIn</Button>
-                //takes you to the Profile Page
+
                 <Button color="warning">SignUp</Button>
             </Form>
         );

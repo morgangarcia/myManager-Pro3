@@ -39,13 +39,13 @@ class AppNavbar extends React.Component {
                                 <NavLink href="/">Login</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/components/Profile/">Profile</NavLink>
+                                <NavLink href="/profile">Profile</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/components/Contractor/">Contractor</NavLink>
+                                <NavLink href="/contractor">Contractor</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="/components/Payment/">Payment</NavLink>
+                                <NavLink href="/payment">Payment</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
@@ -57,48 +57,7 @@ class AppNavbar extends React.Component {
         );
     }
 }
-// state = {
-//     isOpen: false
-// }
-// toggle = () => {
-//     this.setState({
-//         isOpen: !this.state.isOpen
-//     });
-// }
-// render() {
-//     return (
-//         <div>
-//             <Navbar color="dark" dark expand="sm" className="mb-5">
-//                 <Container>
-//                     <NavbarBrand href="/">myManager</NavbarBrand>
-//                     <NavbarToggler onClick={this.toggle} />
-//                     <Collapse isopen={this.state.isOPen} navbar>
-//                         <Nav className="ml-auto" navbar>
-//                             <NavItem>
-//                                 <NavLink href="https://github.com/morgangarcia">
-//                                     Github
-//                                 </NavLink>
-//                             </NavItem>
-//                             <NavItem>
-//                                 <NavLink href="/components/">Login</NavLink>
-//                             </NavItem>
-//                             <NavItem>
-//                                 <NavLink href="/components/">Profile</NavLink>
-//                             </NavItem>
-//                             <NavItem>
-//                                 <NavLink href="/components/">Contractor</NavLink>
-//                             </NavItem>
-//                             <NavItem>
-//                                 <NavLink href="/components/">Payment</NavLink>
-//                             </NavItem>
-//                         </Nav>
-//                     </Collapse>
-//                 </Container>
-//             </Navbar>
-//         </div >
-//     );
 
-// }
 
 export default AppNavbar;
 
