@@ -18,7 +18,9 @@ router.get('/Profile', (req, res) => {
 // @access  Public
 router.post('/Profile', (req, res) => {
     const newItem = new Item({
-        name: req.body.name
+        email: req.body.email,
+        password: req.body.password
+        
     });
     newItem.save().then(item => res.json(item));
 });

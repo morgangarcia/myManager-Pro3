@@ -16,21 +16,21 @@ const ItemSchema = new Schema({
         required: true,
     },
 
-    file1: {
-       type: Array,
-       required: true,
+    taxdoc: {
+        type: Array,
+
     },
-    file2: {
+    invoice: {
         type: Array,
-        required: true,
-     },
-     file3: {
+
+    },
+    rider: {
         type: Array,
-        required: true,
-     },
-     textarea: {
-      type: String,
-     required: true,
-     }
+
+    },
+    textarea: {
+        type: String,
+        required: false,
+    }
 });
 module.exports = Item = mongoose.model('model', ItemSchema);
