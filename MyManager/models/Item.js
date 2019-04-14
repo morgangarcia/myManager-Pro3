@@ -7,9 +7,30 @@ const ItemSchema = new Schema({
         type: String,
         required: true
     },
-    data: {
-        type: Date,
-        default: Date.now
-    }
+    email: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true,
+    },
+
+    file1: {
+       type: Array,
+       required: true,
+    },
+    file2: {
+        type: Array,
+        required: true,
+     },
+     file3: {
+        type: Array,
+        required: true,
+     },
+     textarea: {
+      type: String,
+     required: true,
+     }
 });
 module.exports = Item = mongoose.model('model', ItemSchema);

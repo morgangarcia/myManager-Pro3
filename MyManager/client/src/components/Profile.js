@@ -12,9 +12,13 @@ class Profile extends React.Component {
     state = {
         items: [
             { id: uuid(), name: 'Name' },
-            { id: uuid(), name: 'Occupation' },
-            { id: uuid(), name: 'Years Experience' },
-            { id: uuid(), name: 'Price' }
+            { id: uuid(), email: 'email' },
+            { id: uuid(), password: 'password' },
+            { id: uuid(), file1: '10-99' },
+            { id: uuid(), file2: 'invoice' },
+            { id: uuid(), file3: 'rider' },
+            { id: uuid(), textarea: 'lowest offer' },
+
         ]
     }
     render() {
@@ -29,12 +33,8 @@ class Profile extends React.Component {
                     <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="exampleText">Text Area</Label>
-                    <Input type="textarea" name="text" id="exampleText" placeholder="Include any details for Contract" />
-                </FormGroup>
-                <FormGroup>
                     <Label for="exampleFile">File</Label>
-                    <Input type="file" name="file" id="exampleFile" />
+                    <Input type="file" name="file1" id="exampleFile" />
                     <FormText color="muted">
                         Upload 10-99
 
@@ -42,7 +42,7 @@ class Profile extends React.Component {
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleFile">File</Label>
-                    <Input type="file" name="file" id="exampleFile" />
+                    <Input type="file" name="file2" id="exampleFile" />
                     <FormText color="muted">
                         Upload Invoice
 
@@ -50,7 +50,7 @@ class Profile extends React.Component {
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleFile">File</Label>
-                    <Input type="file" name="file" id="exampleFile" />
+                    <Input type="file" name="file3" id="exampleFile" />
                     <FormText color="muted">
                         Upload Rider/Contract Details
 
@@ -63,6 +63,10 @@ class Profile extends React.Component {
                             <Input type="radio" name="radio1" />{' '}
                             Select If You Want a "Make An Offer" Option
             </Label>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="exampleText">Text Area</Label>
+                        <Input type="textarea" name="text" id="exampleText" placeholder="What's Lowest offer?" />
                     </FormGroup>
 
                 </FormGroup>
