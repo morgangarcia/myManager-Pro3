@@ -1,32 +1,56 @@
 
-//import axios, from 'axios';
 
-//import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
-//import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import uuid from 'uuid';
-
+import axios from 'axios';
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 class Profile extends React.Component {
-    state = {
-        items: [
-            { id: uuid(), name: 'Name' },
-            { id: uuid(), email: 'email' },
-            { id: uuid(), password: 'password' },
-            { id: uuid(), file1: '10-99' },
-            { id: uuid(), file2: 'invoice' },
-            { id: uuid(), file3: 'rider' },
-            { id: uuid(), textarea: 'lowest offer' },
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: '',
+            taxform: '',
+            invoice: '',
+            rider: '',
+            img: '',
+            offeron: '',
+            textarea: ''
 
-        ]
+
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    handleChange(event) {
+
+        this.setState({ [event.target.name]: event.target.value });
+    }
+
+    handleSubmit(event) {
+
+        event.preventDefault();
+        axios.post('/Profile', this.state)
+            .then(res => console.log('axios response', res))
+            .catch(err => console.log(err))
     }
     render() {
+
         return (
+
             <Form>
                 <FormGroup>
                     <Label for="exampleEmail">Email</Label>
-                    <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+                    <Input type="email"
+                        name="email"
+                        id="exampleEmail"
+                        placeholder="with a placeholder"
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                    />
+
                 </FormGroup>
                 <FormGroup>
                     <Label for="examplePassword">Password</Label>
@@ -34,25 +58,55 @@ class Profile extends React.Component {
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleFile">File</Label>
-                    <Input type="file" name="file1" id="exampleFile" />
+                    <Input
+                        type="taxform"
+                        name="taxform"
+                        id="exampleFile"
+
+                        onChange={this.handleChange}
+                    />
                     <FormText color="muted">
                         Upload 10-99
-
                     </FormText>
+
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleFile">File</Label>
-                    <Input type="file" name="file2" id="exampleFile" />
+                    <Input
+                        type="invoice"
+                        name="invoice"
+                        id="exampleFile"
+                        onChange={this.handleChange}
+
+                    />
                     <FormText color="muted">
                         Upload Invoice
+                        </FormText>
+
+                </FormGroup>
+                <FormGroup>
+                    <Label for="exampleFile">File</Label>
+                    <Input
+                        type="rider"
+                        name="rider"
+                        id="exampleFile"
+                        onChange={this.handleChange}
+                    />
+                    <FormText color="muted">
+                        Upload Rider/Contract Details
 
                     </FormText>
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleFile">File</Label>
-                    <Input type="file" name="file3" id="exampleFile" />
+                    <Input
+                        type="img"
+                        name="img"
+                        id="exampleFile"
+                        onChange={this.handleChange}
+                    />
                     <FormText color="muted">
-                        Upload Rider/Contract Details
+                        Upload Contractor Image.jpg
 
                     </FormText>
                 </FormGroup>
@@ -60,13 +114,23 @@ class Profile extends React.Component {
                     <legend>Make An Offer Option</legend>
                     <FormGroup check>
                         <Label check>
-                            <Input type="radio" name="radio1" />{' '}
+                            <Input
+                                type="offeron"
+                                name="offeron"
+                                onChange={this.handleChange}
+                            />{' '}
                             Select If You Want a "Make An Offer" Option
             </Label>
                     </FormGroup>
                     <FormGroup>
                         <Label for="exampleText">Text Area</Label>
-                        <Input type="textarea" name="text" id="exampleText" placeholder="What's Lowest offer?" />
+                        <Input
+                            type="textarea"
+                            name="textarea"
+                            id="exampleText"
+                            placeholder="Contractor Message Goes Here"
+                            onCHange={this.handleChange}
+                        />
                     </FormGroup>
 
                 </FormGroup>
@@ -83,51 +147,11 @@ class Profile extends React.Component {
                         }
                     }}>Submit</Button>
             </Form>
+
+
         );
     }
 }
 
-// render() {
-//     const { items } = this.state;
-//     return (
-//         <Container>
-//             <Button
-//                 color="dark"
-//                 style={{ marginBotttom: '2rem' }}
-//                 onClick={() => {
-//                     const name = prompt('Enter Item');
-//                     if (name) {
-//                         this.setState(state => ({
-//                             items: [...state.items, { id: uuid(), name }]
-//                         }));
-//                     }
-//                 }}>Add Info</Button>
-//             <ListGroup>
-//                 <TransitionGroup className="profile-list">
-//                     {items.map(({ id, name }) => (
-//                         <CSSTransition key={id} timeout={500} classNames="fade">
-//                             <ListGroupItem>
-//                                 <Button
-//                                     className="remove-btn"
-//                                     color="danger"
-//                                     size="sm"
-//                                     onClick={() => {
-//                                         this.setState(state => ({
-//                                             items: state.items.filter(item => item.id !== id)
-//                                         }));
-//                                     }}
 
-//                                 >X</Button>
-
-//                                 {name}
-//                             </ListGroupItem>
-//                         </CSSTransition>
-//                     ))}
-//                 </TransitionGroup>
-
-//             </ListGroup>
-//         </Container>
-//     );
-// }
-//}
 export default Profile; 
