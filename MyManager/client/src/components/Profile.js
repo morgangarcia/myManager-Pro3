@@ -1,6 +1,6 @@
 
 
-import uuid from 'uuid';
+
 import axios from 'axios';
 import React from 'react';
 import { Container, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
@@ -39,27 +39,27 @@ class Profile extends React.Component {
     render() {
 
         return (
-            <Container>
+            <Container >
                 <Form>
                     <FormGroup>
-                        <Label for="exampleEmail">Email</Label>
-                        <Input type="email"
-                            name="email"
+                        <Label for="exampleEmail">Name</Label>
+                        <Input type="name"
+                            name="name"
                             id="exampleEmail"
-                            placeholder="with a placeholder"
-                            value={this.state.email}
+                            placeholder="Contractor Name"
+                            value={this.state.name}
                             onChange={this.handleChange}
                         />
 
                     </FormGroup>
                     <FormGroup>
-                        <Label for="examplePassword">Password</Label>
-                        <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+                        <Label for="examplePassword">Occupation</Label>
+                        <Input type="occupationName" name="occupationName" id="examplePassword" placeholder="Occupation Title" />
                     </FormGroup>
                     <FormGroup>
-                        <Label for="exampleFile">File</Label>
+                        <Label for="exampleFile">1099</Label>
                         <Input
-                            type="taxform"
+                            type="file"
                             name="taxform"
                             id="exampleFile"
 
@@ -71,9 +71,9 @@ class Profile extends React.Component {
 
                     </FormGroup>
                     <FormGroup>
-                        <Label for="exampleFile">File</Label>
+                        <Label for="exampleFile">Invoice</Label>
                         <Input
-                            type="invoice"
+                            type="file"
                             name="invoice"
                             id="exampleFile"
                             onChange={this.handleChange}
@@ -85,29 +85,29 @@ class Profile extends React.Component {
 
                     </FormGroup>
                     <FormGroup>
-                        <Label for="exampleFile">File</Label>
+                        <Label for="exampleFile">rider</Label>
                         <Input
-                            type="rider"
+                            type="file"
                             name="rider"
                             id="exampleFile"
                             onChange={this.handleChange}
                         />
                         <FormText color="muted">
                             Upload Rider/Contract Details
-    
+
                     </FormText>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="exampleFile">File</Label>
+                        <Label for="exampleFile">img</Label>
                         <Input
-                            type="img"
+                            type="file"
                             name="img"
                             id="exampleFile"
                             onChange={this.handleChange}
                         />
                         <FormText color="muted">
                             Upload Contractor Image.jpg
-    
+
                     </FormText>
                     </FormGroup>
                     <FormGroup tag="fieldset">
@@ -115,14 +115,14 @@ class Profile extends React.Component {
                         <FormGroup check>
                             <Label check>
                                 <Input
-                                    type="offeron"
+                                    type="radio"
                                     name="offeron"
                                     onChange={this.handleChange}
                                 />{' '}
                                 Select If You Want a "Make An Offer" Option
             </Label>
                         </FormGroup>
-                        <FormGroup>
+                        {/* <FormGroup>
                             <Label for="exampleText">Text Area</Label>
                             <Input
                                 type="textarea"
@@ -131,7 +131,7 @@ class Profile extends React.Component {
                                 placeholder="Contractor Message Goes Here"
                                 onCHange={this.handleChange}
                             />
-                        </FormGroup>
+                        </FormGroup> */}
 
                     </FormGroup>
 
@@ -142,10 +142,11 @@ class Profile extends React.Component {
                             const name = prompt('Enter Item');
                             if (name) {
                                 this.setState(state => ({
-                                    items: [...state.items, { id: uuid(), name }]
+                                    items: [...state.items, { id: name }]
                                 }));
                             }
                         }}>Submit</Button>
+
                 </Form>
             </Container>
 
