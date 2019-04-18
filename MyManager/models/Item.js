@@ -6,37 +6,37 @@ const ItemSchema = new Schema({
     name: {
         type: String,
         required: true
-    }
+    },
 
 
-    // email: {
-    //     type: String,
-    //     required: true
-    // }
+     email: {
+         type: String,
+         required: true
+     },
 
 
-    // password: {
-    //     type: String,
-    //     required: true
-    // },
+     password: {
+         type: String,
+         required: true
+     },
 
 
 
-    // taxdoc: {
-    //     type: {},
+     taxform: {
+         type: String,
 
-    // },
-    // invoice: {
-    //     type: {},
+     },
+     invoice: {
+        type: String,
 
-    // },
-    // rider: {
-    //     type: {},
+     },
+     rider: {
+         type: String,
 
-    // },
-    // textarea: {
-    //     type: String,
-    //     required: false,
-    // }
+     },
+     textarea: {
+         type: String,
+         required: false,
+     }
 });
 module.exports = Item = mongoose.model("item", ItemSchema);
