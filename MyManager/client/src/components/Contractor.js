@@ -11,15 +11,32 @@
 import React from 'react';
 import {
     Container, Card, Button, CardImg, CardTitle, CardText, CardDeck,
-    CardSubtitle, CardBody
+    CardSubtitle, CardBody, FormGroup, Label, Input
 } from 'reactstrap';
 
 const Example = (props) => {
+
+
     return (
+
+
+
+
+
         <Container>
+            <FormGroup>
+                <Label for="exampleSearch">Search</Label>
+                <Input
+                    type="search"
+                    name="search"
+                    id="exampleSearch"
+                    placeholder="search placeholder"
+                />
+                <Button type="submit" onClick={(e) => props.handleSearchClick(e)}>Search</Button>
+            </FormGroup>
             <CardDeck>
                 <Card>
-                    <CardImg top width="100%" src="MyManager/client/src/images/MorganGarcia.jpg" alt="Contractor Img" />
+                    <CardImg top width="100%" src="../images/MorganGarcia.jpg" alt="Contractor Img" />
                     <CardBody>
                         <CardTitle>Morgan Garcia</CardTitle>
                         <CardSubtitle>Mixer/Mastering</CardSubtitle>

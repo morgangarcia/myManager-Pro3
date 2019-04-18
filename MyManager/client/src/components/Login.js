@@ -26,7 +26,7 @@ class Login extends React.Component {
     handleSubmit(event) {
 
         event.preventDefault();
-        axios.post('/Profile', this.state)
+        axios.post('/Login', this.state)
             .then(res => console.log('axios response', res))
             .catch(err => console.log(err))
     }
@@ -59,7 +59,7 @@ class Login extends React.Component {
                 <Button onSubmit={this.handleSubmit}
                     color="primary">SignIn</Button>
 
-                <Button
+                <Button onSubmit={this.handleSubmit}
                     color="warning">SignUp</Button>
             </Form>
         );
