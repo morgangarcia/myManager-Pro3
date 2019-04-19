@@ -14,6 +14,7 @@ import {
     CardSubtitle, CardBody, FormGroup, Label, Input
 } from 'reactstrap';
 
+
 const Contractor = (props) => {
 
     return (
@@ -32,12 +33,12 @@ const Contractor = (props) => {
 
             <CardDeck>
                 <Card>
-                    <CardImg top width="100%" src="../../images/MorganGarcia.jpg" alt="Contractor Img" />
+                    <CardImg top width="100%" src="src/images/MorganGarcia.jpg" alt="Contractor Img" />
                     <CardBody>
                         <CardTitle>Morgan Garcia</CardTitle>
                         <CardSubtitle>Mixer/Mastering</CardSubtitle>
                         <CardText>$1,200 per Mix per song for Mastering</CardText>
-                        <Button>Book Now</Button>
+                        <Button onClick>Book Now</Button>
 
                     </CardBody>
                 </Card>

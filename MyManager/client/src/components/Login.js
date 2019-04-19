@@ -16,14 +16,14 @@ class Login extends React.Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleonClick = this.handleonClick.bind(this);
     }
     handleChange(event) {
 
         this.setState({ [event.target.name]: event.target.value });
     }
 
-    handleSubmit(event) {
+    handleonClick(event) {
 
         event.preventDefault();
         axios.post('/Login', this.state)
@@ -39,7 +39,7 @@ class Login extends React.Component {
                         type="email"
                         name="email"
                         id="exampleEmail"
-                        placeholder="user@jesusmail.com"
+                        placeholder="user@mail.com"
                         value={this.state.email}
 
                         onChange={this.handleChange}
@@ -56,10 +56,10 @@ class Login extends React.Component {
                         onChange={this.handleChange} />
                 </FormGroup>
 
-                <Button onSubmit={this.handleSubmit}
+                <Button onClick={this.handleonClick}
                     color="primary">SignIn</Button>
 
-                <Button onSubmit={this.handleSubmit}
+                <Button onClick={this.handleonClick}
                     color="warning">SignUp</Button>
             </Form>
         );

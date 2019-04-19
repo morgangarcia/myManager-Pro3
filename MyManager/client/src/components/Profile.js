@@ -30,7 +30,7 @@ class Profile extends Component {
         }
 
         this.handleChange = this.handleChange.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
+        //this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
@@ -47,22 +47,23 @@ class Profile extends Component {
                     console.log(this.state.contractorOccupation);
                 });
                 break;
-                case "taxform":
+            case "taxform":
                 this.setState({ contractortaxform: event.target.value }, () => {
                     console.log(this.state.contractortaxform);
                 });
                 break;
-                case "rider":
+            case "rider":
                 this.setState({ contractorrider: event.target.value }, () => {
                     console.log(this.state.contractorrider);
                 });
                 break;
-                case "contractorImage":
+            case "contractorImage":
                 this.setState({ contractorImage: event.target.value }, () => {
                     console.log(this.state.contractorImage);
                 });
                 break;
-               
+
+
 
             default:
 
@@ -83,8 +84,6 @@ class Profile extends Component {
         //const { items } = this.props.items;
         return (
             <Container >
-
-
                 <Form>
                     <Input placeholder="Name" bsSize="sm" id="name" onChange={this.handleChange} />
                     <Input placeholder="Occupation" bsSize="sm" id="occupation" onChange={this.handleChange} />
@@ -144,7 +143,7 @@ class Profile extends Component {
                     <Button
                         color="dark"
                         style={{ marginBottom: '2rem' }}
-                        onClick={() => {
+                        Submit={() => {
                             const name = prompt('enter Item');
                             if (name) {
                                 this.setState(state => ({
