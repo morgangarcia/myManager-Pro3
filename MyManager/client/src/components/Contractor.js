@@ -1,7 +1,7 @@
 
 import React from "react";
 //import items from "../routes/api/items";
-import { BrowserRouter as Router } from "react-router-dom";
+
 
 
 
@@ -14,7 +14,7 @@ import {
     CardSubtitle, CardBody, FormGroup, Label, Input
 } from 'reactstrap';
 
-const Example = (props) => {
+const Contractor = (props) => {
 
     return (
 
@@ -38,13 +38,15 @@ const Example = (props) => {
                         <CardSubtitle>Mixer/Mastering</CardSubtitle>
                         <CardText>$1,200 per Mix per song for Mastering</CardText>
                         <Button>Book Now</Button>
+
                     </CardBody>
                 </Card>
 
             </CardDeck>
 
         </Container >
+
     );
 };
 
-export default Example;
+export default Contractor;

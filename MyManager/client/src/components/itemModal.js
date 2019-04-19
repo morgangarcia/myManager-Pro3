@@ -6,11 +6,12 @@ import {
     Form,
     FormGroup,
     Label,
-    Input
+    Input,
+    ModalBody
 
 } from 'reactstrap';
 import { connect } from 'react-redux';
-import { addItem } from '../actions/itemsActions';
+import { addItem } from '../actions/itemActions';
 
 class ItemModal extends Component {
     state = {
@@ -22,11 +23,24 @@ class ItemModal extends Component {
             modal: !this.state.modal
         });
     }
-    onChange = (e) =>{
-        this.setState({ [e.target.name]: e.target.value
+    onChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
 
         });
     };
+    onSubmit = e => {
+        e.preventDefault();
+        const newItem = {
+            name: this.state.name
+        }
+        //Add item via addItem action
+        this.props.addItem(newItem);
+        //close modal
+        this.toggle();
+
+    }
+
     render() {
         return (
             <div>
@@ -41,24 +55,29 @@ class ItemModal extends Component {
                     <ModalHeader toggle={this.toggle}>ADD Contractor</ModalHeader>
                     <ModalBody>
                         <Form onSubmit={this.onSubmit}>
-                        <FormGroup>
-                            <Label for= "item">Item</Label>
-                            <Input
-                            type="text"
-                            name="name"
-                            id="item"
-                            placeholder="Add Contractor Info"
-                            onChange={this.onChange}
-
-                            </Label>
-                        </FormGroup>
+                            <FormGroup>
+                                <Label for="item">Item</Label>
+                                <Input
+                                    type="text"
+                                    name="name"
+                                    id="item"
+                                    placeholder="Add Contractor Info"
+                                    onChange={this.onChange} />
+                                <Button
+                                    color="dark"
+                                    style={{ marginTop: '2rem' }} block>
+                                    Add Contractor
+                                </Button>
+                            </FormGroup>
                         </Form>
-                        </ModalBody>
+                    </ModalBody>
                 </Modal>
-            </div>
+            </div >
         )
     }
 }
 
-
-export default connect()(ItemModal);
+const mapStateToProps = state => ({
+    item: state.item
+});
+export default connect(mapStateToProps, { addItem })(ItemModal);
