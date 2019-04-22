@@ -1,53 +1,29 @@
+import React from 'react';
+import { Container, Card, CardBody, Button, CardTitle, CardText, CardImg } from 'reactstrap';
 
-import React from "react";
-//import items from "../routes/api/items";
-
-
-
-
-
-
-
-
-import {
-    Container, Card, Button, CardImg, CardTitle, CardText, CardDeck,
-    CardSubtitle, CardBody, FormGroup, Label, Input
-} from 'reactstrap';
-
+import ContractorCard from "./ContractorCard.js";
 
 const Contractor = (props) => {
-
     return (
+        <div>
 
-        <Container>
-            <FormGroup>
-                <Label for="exampleSearch">Search</Label>
-                <Input
-                    type="search"
-                    name="search"
-                    id="exampleSearch"
-                    placeholder="search placeholder"
-                />
-                <Button type="submit" onClick={(e) => props.handleSearchClick(e)}>Search</Button>
-            </FormGroup>
+            <Container>
+                <div id="searchContainer">
+                    <h3>Contractor Search</h3>
+                    <form id="contractorSearch">
+                        <label htmlFor="contractorInput" form="contractorSearch">Enter Contractor to Search</label>
+                        <br></br>
+                        <input type="text" name="contractorInput" id="contractorInput" form="contractorSearch" onChange={(e) => props.handleChange(e)} placeholder="Name" required />
+                        <br></br>
+                        <button type="submit" onClick={(e) => props.handleSearchClick(e)}>Search</button>
+                    </form>
+                </div>
+                <ContractorCard />
 
-            <CardDeck>
-                <Card>
-                    <CardImg top width="100%" src="src/images/MorganGarcia.jpg" alt="Contractor Img" />
-                    <CardBody>
-                        <CardTitle>Morgan Garcia</CardTitle>
-                        <CardSubtitle>Mixer/Mastering</CardSubtitle>
-                        <CardText>$1,200 per Mix per song for Mastering</CardText>
-                        <Button onClick>Book Now</Button>
-
-                    </CardBody>
-                </Card>
-
-            </CardDeck>
-
-        </Container >
-
+            </Container>
+        </div>
     );
 };
 
 export default Contractor;
+

@@ -7,36 +7,40 @@ const ItemSchema = new Schema({
         type: String,
         required: true
     },
+    occupation: {
+        type: String,
+        required: true
+    },
 
 
-     email: {
-         type: String,
-         required: true
-     },
+    email: {
+        type: String,
+        required: true
+    },
 
 
-     password: {
-         type: String,
-         required: true
-     },
+    password: {
+        type: String,
+        required: true
+    },
 
 
 
-     taxform: {
-         type: String,
-
-     },
-     invoice: {
+    taxform: {
         type: String,
 
-     },
-     rider: {
-         type: String,
+    },
+    invoice: {
+        type: String,
 
-     },
-     textarea: {
-         type: String,
-         required: false,
-     }
+    },
+    rider: {
+        type: String,
+
+    },
+    makeOffer: {
+        type: String,
+        required: false,
+    }
 });
-module.exports = Item = mongoose.model("item", ItemSchema);
+module.exports = Item = mongoose.model("items", ItemSchema);

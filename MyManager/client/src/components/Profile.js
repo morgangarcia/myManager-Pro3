@@ -5,7 +5,15 @@ import React, { Component } from 'react';
 //import axios from 'axios';
 
 import { Container, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-//import uuid from 'uuid';
+import ItemModal from './ItemModal';
+import ItemModalADDINFO from './ItemModalADDINFO';
+import ItemModalOccupation from './ItemModalOccupation';
+import ItemModalRTLPrice from './ItemModalRTLPrice';
+
+
+
+
+
 import { connect } from 'react-redux';
 import { getItems } from '../actions/itemActions';
 import PropTypes from 'prop-types';
@@ -37,24 +45,24 @@ class Profile extends Component {
         console.log(event.target.checked); //just for the checkbox
 
         switch (event.target.id) {
-            case "name":
+            case "contractorName":
                 this.setState({ contractorName: event.target.value }, () => {
                     console.log(this.state.contractorName);
                 });
                 break;
-            case "occupation":
+            case "contractorOccupation":
                 this.setState({ contractorOccupation: event.target.value }, () => {
                     console.log(this.state.contractorOccupation);
                 });
                 break;
             case "taxform":
-                this.setState({ contractortaxform: event.target.value }, () => {
-                    console.log(this.state.contractortaxform);
+                this.setState({ taxform: event.target.value }, () => {
+                    console.log(this.state.taxform);
                 });
                 break;
             case "rider":
-                this.setState({ contractorrider: event.target.value }, () => {
-                    console.log(this.state.contractorrider);
+                this.setState({ rider: event.target.value }, () => {
+                    console.log(this.state.rider);
                 });
                 break;
             case "contractorImage":
@@ -84,9 +92,13 @@ class Profile extends Component {
         //const { items } = this.props.items;
         return (
             <Container >
+                <ItemModal />
+                <ItemModalOccupation />
+                <ItemModalRTLPrice />
+                <ItemModalADDINFO />
                 <Form>
-                    <Input placeholder="Name" bsSize="sm" id="name" onChange={this.handleChange} />
-                    <Input placeholder="Occupation" bsSize="sm" id="occupation" onChange={this.handleChange} />
+                    {/* <Input placeholder="Name" bsSize="sm" id="name" onChange={this.handleChange} />
+                    <Input placeholder="Occupation" bsSize="sm" id="occupation" onChange={this.handleChange} /> */}
 
                     <FormGroup>
                         <Label for="exampleFile">1099</Label>

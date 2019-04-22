@@ -3,7 +3,7 @@ import AppNavbar from "./components/AppNavbar";
 import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
-
+// import ItemModal from "./component/ItemModal";
 import Payment from "./components/Payment";
 import Contractor from "./components/Contractor";
 //import ResultsContainer from "./components/ResultsContainer";
@@ -19,7 +19,7 @@ const App = (props) => (
     <Router>
       <div>
         <AppNavbar />
-        
+        {/* <ItemModal /> */}
         <Switch>
           <Route exact path="/" component={Login} />
           <Route exact path="/profile" component={Profile} />

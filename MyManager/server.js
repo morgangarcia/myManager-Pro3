@@ -11,6 +11,9 @@ app.use(bodyParser.json());
 // DB config
 const db = require('./config/keys').mongoURI;
 
+//Static elements
+app.use(express.static('public'));
+
 //Connect to Mongo
 mongoose
     .connect(db)

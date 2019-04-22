@@ -47,9 +47,9 @@ class AppNavbar extends React.Component {
                             <NavItem>
                                 <NavLink href="/payment">Payment</NavLink>
                             </NavItem>
-                            <NavItem>
+                            {/* <NavItem>
                                 <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-                            </NavItem>
+                            </NavItem> */}
                         </Nav>
                     </Collapse>
                 </Navbar>

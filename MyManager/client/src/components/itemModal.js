@@ -7,16 +7,33 @@ import {
     FormGroup,
     Label,
     Input,
-    ModalBody
+    ModalBody,
+    Container
 
 } from 'reactstrap';
-import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
+import { connect } from 'react-redux';
 
 class ItemModal extends Component {
+    componentDidMount() {
+        this.props.getItems();
+    }
+
+
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleonClick = this.handleonClick.bind(this);
+}
+
+handleChange(event) {
+    //console.log(event.target.checked); //just for the checkbox
+
+
+
     state = {
         modal: false,
-        name: ''
+        contractorName: ''
     }
     toggle = () => {
         this.setState({
@@ -25,57 +42,64 @@ class ItemModal extends Component {
     }
     onChange = (e) => {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.contractorName]: e.target.value
 
         });
     };
     onSubmit = e => {
         e.preventDefault();
         const newItem = {
-            name: this.state.name
+            contractorName: this.state.contractorName
         }
         //Add item via addItem action
         this.props.addItem(newItem);
+        //console.log(this.state.contractorName);
         //close modal
         this.toggle();
 
     }
-
-    render() {
-        return (
-            <div>
-                <Button color="dark"
-                    style={{ marginBottom: '2rem' }}
-                    onClick={this.toggle}
-                >Add Item</Button>
-                <Modal
-                    isOpen={this.state.modal}
-                    toggle={this.toggle}
-                >
-                    <ModalHeader toggle={this.toggle}>ADD Contractor</ModalHeader>
-                    <ModalBody>
-                        <Form onSubmit={this.onSubmit}>
-                            <FormGroup>
-                                <Label for="item">Item</Label>
-                                <Input
-                                    type="text"
-                                    name="name"
-                                    id="item"
-                                    placeholder="Add Contractor Info"
-                                    onChange={this.onChange} />
-                                <Button
-                                    color="dark"
-                                    style={{ marginTop: '2rem' }} block>
-                                    Add Contractor
-                                </Button>
-                            </FormGroup>
-                        </Form>
-                    </ModalBody>
-                </Modal>
-            </div >
-        )
-    }
 }
+
+
+render() {
+
+    return (
+        <Container>
+
+            <Button color="dark"
+                style={{ marginBottom: '2rem' }}
+                onClick={this.toggle}
+            >Add Name</Button>
+            <Modal
+                isOpen={this.state.modal}
+                toggle={this.toggle}
+            >
+                <ModalHeader toggle={this.toggle}>ADD Contractor Name</ModalHeader>
+                <ModalBody>
+                    <Form Submit={this.Submit}>
+                        <FormGroup>
+                            <Label for="item">Item</Label>
+                            <Input
+                                type="text"
+                                contractorName="contractorName"
+                                id="item"
+                                placeholder="Add Contractor Name"
+                                onChange={this.onChange} />
+                            <Button
+                                color="dark"
+                                Submit={this.onSubmit}
+                                style={{ marginTop: '2rem' }} block>
+                                Add Contractor Name
+                                />
+                        </FormGroup>
+                    </Form>
+                </ModalBody>
+            </Modal>
+
+        </Container >
+    )
+}
+
 
 const mapStateToProps = state => ({
     item: state.item
