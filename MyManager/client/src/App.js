@@ -6,6 +6,8 @@ import Profile from "./components/Profile";
 // import ItemModal from "./component/ItemModal";
 import Payment from "./components/Payment";
 import Contractor from "./components/Contractor";
+import Landing from "./components/Landing";
+import Register from "./components/Register";
 //import ResultsContainer from "./components/ResultsContainer";
 import { Provider } from 'react-redux';
 import store from './store';
@@ -21,7 +23,9 @@ const App = (props) => (
         <AppNavbar />
         {/* <ItemModal /> */}
         <Switch>
-          <Route exact path="/" component={Login} />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/payment" component={Payment} />
           <Route exact path="/contractor" component={Contractor} />

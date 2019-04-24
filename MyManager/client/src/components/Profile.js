@@ -10,95 +10,126 @@ import ItemModalADDINFO from './ItemModalADDINFO';
 import ItemModalOccupation from './ItemModalOccupation';
 import ItemModalRTLPrice from './ItemModalRTLPrice';
 
+import jwt_decode from 'jwt-decode';
 
 
 
-
-import { connect } from 'react-redux';
-import { getItems } from '../actions/itemActions';
-import PropTypes from 'prop-types';
+// import { connect } from 'react-redux';
+// import { getItems } from '../actions/itemActions';
+// import PropTypes from 'prop-types';
 
 
 
 class Profile extends Component {
-    componentDidMount() {
-        this.props.getItems();
-    }
-
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
-            contractorName: "",
+            first_name: '',
+            last_name: '',
+            email: '',
+            password: '',
             contractorOccupation: "",
             taxform: "", //these next 3 are files and may not actually be strings
             rider: "",
             contractorImage: "",
             makeOffer: false
         }
-
-        this.handleChange = this.handleChange.bind(this);
-        //this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
-        console.log(event.target.checked); //just for the checkbox
+    componentDidMount() {
+        const token = localStorage.usertoken
+        const decoded = jwt_decode(token)
+        this.setState({
+            first_name: decoded.first_name,
+            last_name: decoded.last_name,
+            email: decoded.email
 
-        switch (event.target.id) {
-            case "contractorName":
-                this.setState({ contractorName: event.target.value }, () => {
-                    console.log(this.state.contractorName);
-                });
-                break;
-            case "contractorOccupation":
-                this.setState({ contractorOccupation: event.target.value }, () => {
-                    console.log(this.state.contractorOccupation);
-                });
-                break;
-            case "taxform":
-                this.setState({ taxform: event.target.value }, () => {
-                    console.log(this.state.taxform);
-                });
-                break;
-            case "rider":
-                this.setState({ rider: event.target.value }, () => {
-                    console.log(this.state.rider);
-                });
-                break;
-            case "contractorImage":
-                this.setState({ contractorImage: event.target.value }, () => {
-                    console.log(this.state.contractorImage);
-                });
-                break;
-
-
-
-            default:
-
-        }
-        // console.log("anybody ome?")
-        // this.setState({ [event.target.value]: event.target.value });
+        })
     }
+
+
+
+    //this.handleChange = this.handleChange.bind(this);
+    //this.handleSubmit = this.handleSubmit.bind(this);
+
+
+    // handleChange(event) {
+    //     console.log(event.target.checked); //just for the checkbox
+
+    //     switch (event.target.id) {
+    //         case "contractorName":
+    //             this.setState({ contractorName: event.target.value }, () => {
+    //                 console.log(this.state.contractorName);
+    //             });
+    //             break;
+    //         case "contractorOccupation":
+    //             this.setState({ contractorOccupation: event.target.value }, () => {
+    //                 console.log(this.state.contractorOccupation);
+    //             });
+    //             break;
+    //         case "taxform":
+    //             this.setState({ taxform: event.target.value }, () => {
+    //                 console.log(this.state.taxform);
+    //             });
+    //             break;
+    //         case "rider":
+    //             this.setState({ rider: event.target.value }, () => {
+    //                 console.log(this.state.rider);
+    //             });
+    //             break;
+    //         case "contractorImage":
+    //             this.setState({ contractorImage: event.target.value }, () => {
+    //                 console.log(this.state.contractorImage);
+    //             });
+    //             break;
+    //             default:
+
+    //   }
+    // console.log("anybody ome?")
+    // this.setState({ [event.target.value]: event.target.value });
+
 
     // handleSubmit(eventisRequired) {
     // //this method is going to send the entire "this.state" object as our data object in the request
     //     event.preventDefault();
     //     axios.post('/Profile', this.state)
     //         .then(res => console.log('axios response', res))
-    //         .catch(err => console.log(err))
     // }
+    //         .catch(err => console.log(err))
     render() {
 
         //const { items } = this.props.items;
         return (
-            <Container >
+            <Container>
+                <div className='container'>
+                    <div className='jumbotron mt-5'>
+                        <div className='col-sm-8 mx-auto'>
+                            <h1 className="text-center">Profile</h1>
+                        </div>
+                        <table className="table col-md-6 mx-auto">
+                            <tbody>
+                                <tr>
+                                    <td>First Name</td>
+                                    <td>{this.state.first_name}</td>
+                                    <td>Last Name</td>
+                                    <td>{this.state.last_name}</td>
+                                </tr>
+                                <tr>
+                                    <td>mail</td>
+                                    <td>{this.state.email}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
                 <ItemModal />
                 <ItemModalOccupation />
                 <ItemModalRTLPrice />
                 <ItemModalADDINFO />
                 <Form>
-                    {/* <Input placeholder="Name" bsSize="sm" id="name" onChange={this.handleChange} />
-                    <Input placeholder="Occupation" bsSize="sm" id="occupation" onChange={this.handleChange} /> */}
 
                     <FormGroup>
                         <Label for="exampleFile">1099</Label>
@@ -170,16 +201,9 @@ class Profile extends Component {
                 </Form>
             </Container>
 
-        );
+        )
     }
 }
 
-Profile.propTypes = {
-    getItems: PropTypes.func.isRequired,
-    item: PropTypes.object.isRequired
-}
-const mapStateToProps = (state) => ({
-    item: state.item
-});
 
-export default connect(mapStateToProps, { getItems })(Profile); 
+export default Profile 

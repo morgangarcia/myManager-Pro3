@@ -1,90 +1,85 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import axios from 'axios';
-
-import { connect } from 'react-redux';
-import { getItems } from '../actions/itemActions';
-import PropTypes from 'prop-types';
-
-
+import { login } from './UserFunctions';
+//import { Container } from 'reactstrap';
 
 class Login extends Component {
-    componentDidMount() {
-        this.props.getItems();
-    }
-    constructor(props) {
-        super(props);
 
+    constructor() {
+        super();
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            errors: {}
         }
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
-    handleChange(event) {
 
-        switch (event.target.id) {
-            case "email":
-                this.setState({ email: event.target.value }, () => {
-                    console.log(this.state.email);
-                });
-                break;
-            case "password":
-                this.setState({ password: event.target.value }, () => {
-                    console.log(this.state.password);
-                });
-                break;
-            default:
+    onChange(e) {
+        this.setState({ [e.target.name]: e.target.value });
+    }
 
-            //this.setState({ email: event.target.value });
+    onSubmit(e) {
+        e.preventDefault();
+    
+        const user = {
+            email: this.state.email,
+            password: this.state.password
         }
-    }
-    handleSubmit(event) {
-
-        event.preventDefault();
-        axios.post('/Login', this.state)
-            .then(res => console.log('axios response', res))
-            .catch(err => console.log(err))
+        login(user).then(res => {
+            if (res) {
+                this.props.history.push('/profile')
+            }
+        });
     }
 
     render() {
         return (
-            <Form inline >
-                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                    <Label for="exampleEmail" className="mr-sm-2">Email</Label>
-                    <Input placeholder="email@gmail.com" bsSize="sm" id="email" onChange={this.handleChange} />
-                    <Input placeholder="password" bsSize="sm" id="password" onChange={this.handleChange} />
-                </FormGroup>
-                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                    <Label for="examplePassword" className="mr-sm-2">Password</Label>
-                    {/* <Input
-                        type="password"
-                        name="password"
-                        id="examplePassword"
-                        placeholder="don't tell!"
-                        value={this.state.password}
-                        onChange={this.handleChange} /> */}
-                </FormGroup>
+            <div className="container" >
+                <div className="row" >
+                    <div className="col-md-6 mt-5 mx-auto">
+                        <form noValidate onSubmit={this.onSubmit}>
+                            <h1 className="h3 mb-3 font-weight-normal"> Please Sign In</h1>
+                            <div className="form-group">
+                                <label htmlFor="email">Email</label>
+                                <input
+                                    type="email"
+                                    className="from-control"
+                                    name="email"
+                                    placeholder="Enter Email"
+                                    value={this.state.email}
+                                    onChange={this.onChange}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="password">Password</label>
+                                <input
+                                    type="password"
+                                    className="from-control"
+                                    name="password"
+                                    placeholder="Enter Password"
+                                    value={this.state.password}
+                                    onChange={this.onChange}
+                                />
+                            </div>
+                            <button
+                                type="submit"
+                                className="btn- btn-lg btn-primary btn-block"
+                            >
+                                SignIn
+                         </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-                <Button Submit={this.handleSubmit}
-                    color="primary">SignIn</Button>
+        )
 
-                <Button Submit={this.handleSubmit}
-                    color="warning">SignUp</Button>
-            </Form>
-        );
     }
 }
 
-Login.propTypes = {
-    getItems: PropTypes.func.isRequired,
-    item: PropTypes.object.isRequired
-}
-const mapStateToProps = (state) => ({
-    item: state.item
-});
 
-export default connect(mapStateToProps, { getItems })(Login);
-//export default Login;
+export default Login;
+
+
+

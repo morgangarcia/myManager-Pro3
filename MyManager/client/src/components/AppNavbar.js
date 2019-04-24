@@ -7,12 +7,20 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
+    NavLink
+
 
 } from 'reactstrap';
 
 
 class AppNavbar extends React.Component {
+    logOut(e) {
+        e.preventDefault()
+        localStorage.removeItem('usertoken')
+        this.props.history.push('/')
+
+    }
+
     constructor(props) {
         super(props);
 
@@ -27,8 +35,50 @@ class AppNavbar extends React.Component {
             collapsed: !this.state.collapsed
         });
     }
+
+
+
     render() {
+        const loginRegLink = (
+            <ul classname="navbar-nav">
+                <li className="nav-item">
+                    <NavLink to="/login" clasName="nav-link">
+                        Login
+            </NavLink>
+                </li>
+                <li className="nav-item">
+                    <NavLink to="/register" className="nav-link">
+                        register
+            </NavLink>
+                </li>
+            </ul>
+        )
+        const userLink = (
+            <ul className="nav-bar">
+                <li className="nav-item">
+                    <NavLink to="/profile" className="nav-link">
+                        User
+                    </NavLink>
+                </li>
+                <li className="nav-item">
+                    <a href="" onClick={this.logOut.bind(this)} className="nav-link">
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        )
+
+        const loggedIn = (
+            <NavLink href="/">You are logged in</NavLink>
+        );
+
+        const notLoggedIn = (
+            <NavLink href="/login">Login</NavLink>
+        )
+
+
         return (
+
             <div>
                 <Navbar color="dark" dark expand="sm" className="mb-5">
                     <NavbarBrand href="/" className="mr-auto">myManager</NavbarBrand>
@@ -36,7 +86,10 @@ class AppNavbar extends React.Component {
                     <Collapse isOpen={!this.state.collapsed} navbar>
                         <Nav navbar>
                             <NavItem>
-                                <NavLink href="/">Login</NavLink>
+                                <NavLink href="/">Home</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                {localStorage.usertoken ? loggedIn : notLoggedIn}
                             </NavItem>
                             <NavItem>
                                 <NavLink href="/profile">Profile</NavLink>

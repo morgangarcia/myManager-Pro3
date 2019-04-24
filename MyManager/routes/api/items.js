@@ -22,6 +22,15 @@ router.post('/', (req, res) => {
 
 
     });
+// @route   POST api/items
+// @desc    Create A webToken
+// @access  Public
+router.post('/login', (req, res) => {
+    const newItem = new Item({
+        token: req.body.name
+        
+
+    });
     newItem.save().then(item => res.json(item));
 });
 

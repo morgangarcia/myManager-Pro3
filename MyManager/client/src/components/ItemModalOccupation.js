@@ -13,7 +13,7 @@ import {
 import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
 
-class ItemModal extends Component {
+class ItemModalOccupation extends Component {
     state = {
         modal: false,
         occupation: ''
@@ -80,4 +80,4 @@ class ItemModal extends Component {
 const mapStateToProps = state => ({
     item: state.item
 });
-export default connect(mapStateToProps, { addItem })(ItemModal);
+export default connect(mapStateToProps, { addItem })(ItemModalOccupation);

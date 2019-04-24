@@ -1,6 +1,6 @@
 import React from "react";
 
-function SearchForm(props) {
+const SearchForm = (props) => {
     return (
         <div id="searchContainer">
             <h3>Contractor Search</h3>
