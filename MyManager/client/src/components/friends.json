@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Morgan Garcia",
+    "image": "",
+    "occupation": "Mixer",
+    "location": "Atlanta"
+  },
+  {
+    "id": 2,
+    "name": "AJ",
+    "image": "",
+    "occupation": "Rapper",
+    "location": "Atlanta"
+  },
+  {
+    "id": 3,
+    "name": "Sidney",
+    "image": "",
+    "occupation": "Painter",
+    "location": "Buckhead"
+  },
+  {
+    "id": 4,
+    "name": "Brandon Dixon",
+    "image": "",
+    "occupation": "Sculptor",
+    "location": "Atlanta"
+  },
+  {
+    "id": 5,
+    "name": "Miguel Turno",
+    "image": "",
+    "occupation": "Painter",
+    "location": "Nowhere, Kansas"
+  },
+  {
+    "id": 6,
+    "name": "Jen Fungo",
+    "image": "",
+    "occupation": "Graphic Designer",
+    "location": "LA"
+  },
+  {
+    "id": 7,
+    "name": "Jim Studabager",
+    "image": "",
+    "occupation": "Mover",
+    "location": "NY, NY"
+  },
+  {
+    "id": 8,
+    "name": "Steve Jenkins",
+    "image": "",
+    "occupation": "Producer",
+    "location": "Miami, Fl."
+  },
+  {
+    "id": 9,
+    "name": "Chrissy Stills",
+    "image": "",
+    "occupation": "CPA",
+    "location": "California"
+  },
+  {
+    "id": 10,
+    "name": "Ted Burrows",
+    "image": "",
+    "occupation": "Manager",
+    "location": "O-Town, California"
+  }
+]

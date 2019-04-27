@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AppNavbar from "./components/AppNavbar";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, } from "react-router-dom";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 import Payment from "./components/Payment";

@@ -1,10 +1,9 @@
-
 //import axios, from 'axios';
 
 //import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 //import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import uuid from 'uuid';
-
+import ItemModal from './components/ItemModal'
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
@@ -19,7 +18,9 @@ class Profile extends React.Component {
     }
     render() {
         return (
+            <ItemModal />
             <Form>
+
                 <FormGroup>
                     <Label for="exampleEmail">Email</Label>
                     <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
@@ -126,4 +127,4 @@ class Profile extends React.Component {
 //     );
 // }
 //}
-export default Profile; 
+export default Profile;
